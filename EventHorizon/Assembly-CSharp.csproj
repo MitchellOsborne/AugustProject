@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\LGun.cs" />
+     <Compile Include="Assets\Projectile.cs" />
      <Compile Include="Assets\SmoothFollow.cs" />
      <Compile Include="Assets\TestMove.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

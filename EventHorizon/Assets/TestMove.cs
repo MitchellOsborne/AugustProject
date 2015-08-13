@@ -53,6 +53,10 @@ public class TestMove : MonoBehaviour {
 				}
 				thrusterPS.Stop();
 				boosterEnergy += 100*Time.deltaTime;
+				if (boosterEnergy > maxBoosterEnergy)
+				{
+					boosterEnergy = maxBoosterEnergy;
+				}
 			}
 		}
 		Debug.Log (tf.rotation.eulerAngles);
