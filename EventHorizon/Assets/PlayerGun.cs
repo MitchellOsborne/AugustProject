@@ -19,7 +19,9 @@ public class PlayerGun : MonoBehaviour {
 				{
 					fireCounter = 0;
 					GameObject obj = (GameObject)GameObject.Instantiate(BulletType, gameObject.transform.position, gameObject.transform.rotation);
-					obj.GetComponent<Projectile>().InitVel (GetComponentInParent<Rigidbody>().velocity);
+				//Debug.Log(obj.GetComponent<Agent>().BhList.Count);
+					obj.GetComponent<Agent>().BhList.Add (new Travel(obj.GetComponent<Agent>(),true,gameObject.transform.up));
+				obj.GetComponent<Agent>().Team = gameObject.GetComponentInParent<Agent>().Team;
 				}
 		}
 	}

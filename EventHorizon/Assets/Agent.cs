@@ -5,19 +5,22 @@ public class Agent : MonoBehaviour {
 	public bool isPlayer;
 	public float Health;
 	public float Movespeed;
-	public float Team;
+	public int Team;
 	public Rigidbody rb;
 	public Vector3 Force;
-	public List<IBehaviour> BhList;
+	public List<IBehaviour> BhList = new List<IBehaviour>();
+	public SpawnManager sm;
 	// Use this for initialization
 	void Start () {
+		sm = GameObject.FindGameObjectWithTag ("SpawnManager").GetComponent<SpawnManager> ();
 		rb = GetComponent<Rigidbody> ();
-		BhList = new List<IBehaviour> ();
+		//BhList = new List<IBehaviour> ();
 		if (isPlayer) {
 			BhList.Add (new PlayerBhv (this, true));
 		} else {
-			BhList.Add(new Seek(this, GameObject.FindGameObjectWithTag("Player"),true));
+			BhList.Add(new Seek(this, sm.TeamList[0][0],true));
 		}
+		sm.TeamList [Team].Add (gameObject);
 	}
 	
 	// Update is called once per frame
