@@ -5,8 +5,7 @@ public class rotate : MonoBehaviour {
 
 	public bool rotation;
 	// Use this for initialization
-	void Start (bool isRotationLeft) {
-		this.rotation = isRotationLeft;
+	void Start () {
 	}
 	
 	// Update is called once per frame
