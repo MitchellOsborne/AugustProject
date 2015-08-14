@@ -10,7 +10,7 @@ public class TestMove : MonoBehaviour {
 	public ParticleSystem thrusterPS;
 	float boosterEnergy = 0;
 	bool notBoosting = true;
-	Vector3 Angle;
+	Vector2 Angle;
 	Rigidbody rb;
 	Transform tf;
 	// Use this for initialization
@@ -24,7 +24,7 @@ public class TestMove : MonoBehaviour {
 
 		Angle.x = Input.GetAxis ("Horizontal");
 		Angle.y = Input.GetAxis ("Vertical");
-		Angle.z = 0;
+		//Angle.z = 0;
 		//Debug.Log (Angle);
 		Debug.Log (Quaternion.Euler(Angle));
 		if (Input.GetAxis ("Brake") != 0) {
@@ -43,13 +43,13 @@ public class TestMove : MonoBehaviour {
 
 			if (notBoosting) {
 				rb.AddForce (tf.up * (ShipSpeed * Time.deltaTime));
-				rb.drag = 0.2f;
+				rb.drag = 2f;
 			} else {
 				if(rb.velocity.magnitude < 10)
 				{
 				rb.drag = 0;
 				}else{
-					rb.drag = 0.2f;
+					rb.drag = 2f;
 				}
 				thrusterPS.Stop();
 				boosterEnergy += 100*Time.deltaTime;
