@@ -53,6 +53,7 @@
      <Compile Include="Assets\SmoothFollow.cs" />
      <Compile Include="Assets\TestMove.cs" />
      <Compile Include="Assets\rotate.cs" />
+     <Compile Include="Assets\tempSpawner.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
  <Reference Include="UnityEngine.UI">

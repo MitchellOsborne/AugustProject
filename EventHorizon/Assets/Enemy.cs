@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Enemy : MonoBehaviour {
+	public float HP;
+	public float maxHP;
 	public float speed;
 	Rigidbody rb;
 	GameObject target;
@@ -16,5 +18,16 @@ public class Enemy : MonoBehaviour {
 		Vector3 tempVec = rb.position - target.transform.position;
 		tempVec.Normalize ();
 		rb.position -= tempVec *(speed * Time.deltaTime);
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag == "Player") {
+			//Damage the player
+		}
+
+		if (HP < 0) {
+			Destroy (gameObject);
+		}
 	}
 }
