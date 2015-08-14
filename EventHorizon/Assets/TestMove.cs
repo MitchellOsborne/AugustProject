@@ -49,19 +49,7 @@ public class TestMove : MonoBehaviour {
 			rb.AddForce (tf.up * (ShipSpeed * Time.deltaTime) * brakeEnergy);
 			notBraking = true;
 		}
-		if (rb.velocity.x > MaxVelocity) {
-			rb.velocity.x = MaxVelocity;
-		}
-		if (rb.velocity.x < -MaxVelocity) {
-			rb.velocity.x = -MaxVelocity;
-		}
 
-		if (rb.velocity.y > MaxVelocity) {
-			rb.velocity.y = MaxVelocity;
-		}
-		if (rb.velocity.y < -MaxVelocity) {
-			rb.velocity.y = -MaxVelocity;
-		}
 
 		Debug.Log (rb.velocity);
 
