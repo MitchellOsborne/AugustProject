@@ -66,7 +66,7 @@ public class TestMove : MonoBehaviour {
 			rb.AddForce (tf.up * (ShipSpeed * Time.deltaTime) * boosterEnergy);
 			notBoosting = true;
 			boosterEnergy = 0;
-			boosterPS.Emit(1000);
+			boosterPS.Play ();
 			thrusterPS.Play();
 		}
 
