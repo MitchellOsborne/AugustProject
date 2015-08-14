@@ -5,6 +5,7 @@ public class Projectile : MonoBehaviour {
 	public float damage;
 	public float speed;
 	public float lifetime;
+	public float fireRate = 0;
 	private float age = 0;
 	private Vector3 initVelocity;
 	// Use this for initialization
@@ -30,7 +31,7 @@ public class Projectile : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other)
 	{
-		Debug.Log (other.GetType());
+		//Debug.Log (other.GetType());
 		if (other.gameObject.tag != "PlayerBullet") {
 			Destroy (gameObject);
 		}
