@@ -4,7 +4,7 @@ using System.Collections;
 public class TestMove : MonoBehaviour {
 	public float ShipSpeed = 100;
 	public float MaxVelocity;
-	public float RotateSpeed = 20.0f;
+	public float RotateSpeed = 10.0f;
 	public float maxBoosterEnergy = 400;
 	public ParticleSystem boosterPS;
 	public ParticleSystem thrusterPS;
@@ -37,19 +37,7 @@ public class TestMove : MonoBehaviour {
 					float tempAngle = Mathf.Atan2 (Angle.x, Angle.y) * Mathf.Rad2Deg;
 					Vector3 tempVec = new Vector3(0,0,tempAngle);
 					//Debug.Log (tf.rotation.eulerAngles);
-			float rot = RotateSpeed - rb.velocity.magnitude;
-			if(!notBoosting)
-			{
-				rot = RotateSpeed = 0;
-			}
-			if(rot < 0)
-			{
-				rot *= -1;
-			}
-			Debug.Log(rot);
-			
-					Quaternion nyuk = Quaternion.Slerp (tf.rotation,Quaternion.Euler(tempVec), rot*Time.deltaTime);
-			
+					Quaternion nyuk = Quaternion.Slerp (tf.rotation,Quaternion.Euler(tempVec), RotateSpeed*Time.deltaTime);
 					Debug.Log (nyuk);
 					tf.rotation = (nyuk);
 
