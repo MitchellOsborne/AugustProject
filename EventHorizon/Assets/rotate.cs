@@ -3,13 +3,18 @@ using System.Collections;
 
 public class rotate : MonoBehaviour {
 
+	public bool rotation;
 	// Use this for initialization
-	void Start () {
-	
+	void Start (bool isRotationLeft) {
+		this.rotation = isRotationLeft;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Rotate(new Vector3(0,0,3));
+		if (rotation == true) {
+			transform.Rotate (new Vector3 (0, 0, 3));
+		} else {
+			transform.Rotate (new Vector3 (0, 0, -3));
+		}
 	}
 }
