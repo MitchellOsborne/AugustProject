@@ -35,7 +35,7 @@ public class Projectile : MonoBehaviour {
 		if (other.gameObject.tag != "PlayerBullet") {
 			if(other.gameObject.tag == "Enemy")
 			{
-				other.GetComponent<Enemy>().HP -= damage;
+				other.GetComponent<Agent>().Health -= damage;
 			}
 			Destroy (gameObject);
 		}

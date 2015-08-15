@@ -12,15 +12,15 @@ public class PlayerGun : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-	if (Input.GetAxis (FireKey) != 0) {
-			fireCounter += Time.deltaTime;
-			if(fireCounter > BulletType.GetComponent<Projectile>().fireRate)
-			{
-				fireCounter = 0;
-				GameObject obj = (GameObject)GameObject.Instantiate(BulletType, gameObject.transform.position, gameObject.transform.rotation);
-				obj.GetComponent<Projectile>().InitVel (GetComponentInParent<Rigidbody>().velocity);
-			}
+		fireCounter += Time.deltaTime;
+		if (Input.GetAxis (FireKey) != 0) 
+		{
+				if(fireCounter > BulletType.GetComponent<Projectile>().fireRate)
+				{
+					fireCounter = 0;
+					GameObject obj = (GameObject)GameObject.Instantiate(BulletType, gameObject.transform.position, gameObject.transform.rotation);
+					obj.GetComponent<Projectile>().InitVel (GetComponentInParent<Rigidbody>().velocity);
+				}
 		}
 	}
 }
