@@ -14,7 +14,7 @@ public class Seek : IBehaviour {
 	override public void Update () {
 		Vector3 tempVec = ThisAgent.rb.position - Target.transform.position;
 		tempVec.Normalize ();
-		ThisAgent.Force += -(tempVec * Time.deltaTime);
+		ThisAgent.Force += -(tempVec);
 	}
 
 	public void Disable()
