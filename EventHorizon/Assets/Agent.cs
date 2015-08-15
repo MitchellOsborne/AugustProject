@@ -28,5 +28,7 @@ public class Agent : MonoBehaviour {
 		foreach (IBehaviour bhv in BhList) {
 			bhv.Update();
 		}
+		rb.AddForce(Force * Movespeed);
+		Force = Vector3.zero;
 	}
 }
