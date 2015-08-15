@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerBhv : IBehaviour {
@@ -76,6 +77,6 @@ public class PlayerBhv : IBehaviour {
 		
 		
 		Debug.Log (boosterEnergy);
-		
+		GameObject.FindGameObjectWithTag ("HealthText").GetComponent<Text> ().text = ThisAgent.Health.ToString ();
 	}
 }

@@ -12,9 +12,13 @@ public class Seek : IBehaviour {
 	
 	// Update is called once per frame
 	override public void Update () {
-		Vector3 tempVec = ThisAgent.rb.position - Target.transform.position;
-		tempVec.Normalize ();
-		ThisAgent.Force += -(tempVec);
+		if (Target != null) {
+			Vector3 tempVec = ThisAgent.rb.position - Target.transform.position;
+			tempVec.Normalize ();
+			ThisAgent.Force += -(tempVec);
+		} else {
+			isEnabled = false;
+		}
 	}
 
 	public void Disable()
