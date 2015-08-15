@@ -26,6 +26,7 @@ public class Agent : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Health <= 0) {
+			sm.TeamList[Team].Remove(gameObject);
 			Destroy (gameObject);
 		}
 		foreach (IBehaviour bhv in BhList) {
