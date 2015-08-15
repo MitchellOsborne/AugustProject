@@ -49,6 +49,9 @@
      <Compile Include="Assets\Agent.cs" />
      <Compile Include="Assets\Enemy.cs" />
      <Compile Include="Assets\IBehaviour.cs" />
+     <Compile Include="Assets\ParticleManager.cs" />
+     <Compile Include="Assets\Player.cs" />
+     <Compile Include="Assets\PlayerBhv.cs" />
      <Compile Include="Assets\PlayerGun.cs" />
      <Compile Include="Assets\Projectile.cs" />
      <Compile Include="Assets\RGun.cs" />
