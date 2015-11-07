@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 public class Agent : MonoBehaviour {
@@ -10,13 +10,14 @@ public class Agent : MonoBehaviour {
 	public Vector3 Force;
 	public List<IBehaviour> BhList = new List<IBehaviour>();
 	public SpawnManager sm;
+	public string PlayerId;
 	// Use this for initialization
 	void Start () {
 		sm = GameObject.FindGameObjectWithTag ("SpawnManager").GetComponent<SpawnManager> ();
 		rb = GetComponent<Rigidbody> ();
 		//BhList = new List<IBehaviour> ();
 		if (isPlayer) {
-			BhList.Add (new PlayerBhv (this, true));
+			BhList.Add (new PlayerBhv (this, true, PlayerId));
 		} else {
 			BhList.Add(new Seek(this, sm.TeamList[0][0],true));
 		}
@@ -25,6 +26,7 @@ public class Agent : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		if (Health <= 0) {
 			sm.TeamList[Team].Remove(gameObject);
 			Destroy (gameObject);

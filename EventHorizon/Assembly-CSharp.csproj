@@ -60,6 +60,7 @@
      <Compile Include="Assets\SpawnManager.cs" />
      <Compile Include="Assets\TestMove.cs" />
      <Compile Include="Assets\Travel.cs" />
+     <Compile Include="Assets\TurretGun.cs" />
      <Compile Include="Assets\rotate.cs" />
      <Compile Include="Assets\tempSpawner.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

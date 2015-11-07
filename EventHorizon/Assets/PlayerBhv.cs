@@ -8,6 +8,7 @@ public class PlayerBhv : IBehaviour {
 	public float MaxVelocity;
 	public float RotateSpeed = 3.0f;
 	public float maxBoosterEnergy = 200;
+	private string PlayerID;
 	private ParticleSystem boosterPS;
 	private ParticleSystem thrusterPS;
 	float boosterEnergy = 0;
@@ -16,8 +17,9 @@ public class PlayerBhv : IBehaviour {
 	Rigidbody rb;
 	Transform tf;
 
-	public PlayerBhv (Agent aAgent, bool EnableAtStart) : base(aAgent, EnableAtStart)
+	public PlayerBhv (Agent aAgent, bool EnableAtStart, string aPlayerID) : base(aAgent, EnableAtStart)
 	{
+		PlayerID = aPlayerID;
 		tf = ThisAgent.gameObject.transform;
 		rb = ThisAgent.gameObject.GetComponent<Rigidbody> ();
 		thrusterPS = ThisAgent.GetComponent<ParticleManager> ().thrusterPS;
@@ -27,12 +29,12 @@ public class PlayerBhv : IBehaviour {
 	// Update is called once per frame
 	override public void Update () {
 		
-		Angle.x = Input.GetAxis ("Horizontal");
-		Angle.y = Input.GetAxis ("Vertical");
+		Angle.x = Input.GetAxis ("Horizontal" + PlayerID);
+		Angle.y = Input.GetAxis ("Vertical" + PlayerID);
 		//Angle.z = 0;
 		//Debug.Log (Angle);
 		Debug.Log (Quaternion.Euler(Angle));
-		if (Input.GetAxis ("Brake") != 0) {
+		if (Input.GetAxis ("Brake" + PlayerID) != 0) {
 			notBoosting = false;
 		}
 		
@@ -66,7 +68,7 @@ public class PlayerBhv : IBehaviour {
 		}
 		Debug.Log (tf.rotation.eulerAngles);
 		
-		if (Input.GetAxis("Brake") == 0 && notBoosting == false) {
+		if (Input.GetAxis("Brake" + PlayerID) == 0 && notBoosting == false) {
 			//rb.velocity = Vector3.zero;
 			rb.AddForce (tf.up * (ShipSpeed * Time.deltaTime) * boosterEnergy);
 			notBoosting = true;
